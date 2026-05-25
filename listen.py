@@ -3,6 +3,11 @@ from speak import speak
 
 r = sr.Recognizer()
 
+# Calibrate microphone once
+with sr.Microphone() as source:
+    print("Calibrating microphone...")
+    r.adjust_for_ambient_noise(source, duration=1)
+
 def listen():
 
     with sr.Microphone() as source:
@@ -10,7 +15,7 @@ def listen():
         print("\nListening...")
         speak("Listening")
 
-        audio = r.listen(source)
+        audio = r.listen(source, phrase_time_limit=5)
 
     try:
 
