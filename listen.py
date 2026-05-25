@@ -15,7 +15,7 @@ def listen(text="Waiting..."):
 
         audio = r.listen(
             source,
-            timeout=1,
+            timeout=5,
             phrase_time_limit=3
 )
 
