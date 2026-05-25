@@ -4,12 +4,9 @@ from speak import speak
 import random
 responses = [
     "Yes?",
-    "I'm listening.",
-    "What do you need?",
-    "Tell me.",
-    "Ready."
+    "Hmm?",
+    "Ready.",
 ]
-
 def execute(command):
 
     if "firefox" in command or "fire fox" in command:

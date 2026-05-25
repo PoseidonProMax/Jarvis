@@ -5,8 +5,6 @@ from commands import execute, responses
 from speak import speak
 
 print("Jarvis Assistant Started...")
-speak("Jarvis Assistant Activated")
-
 running = True
 
 while running:
@@ -22,5 +20,3 @@ while running:
 
         if command:
             running = execute(command)
-
-    time.sleep(1)

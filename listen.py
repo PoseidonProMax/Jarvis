@@ -11,9 +11,13 @@ def listen(text="Waiting..."):
 
     with sr.Microphone() as source:
 
-        print(f"\n{text}")
+        print(text)
 
-        audio = r.listen(source, phrase_time_limit=5)
+        audio = r.listen(
+    source,
+    timeout=2,
+    phrase_time_limit=3
+)
 
     try:
 
