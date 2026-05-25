@@ -4,31 +4,34 @@ from speak import speak
 import random
 
 responses = [
-    "Yes?",
-    "Hmm?",
-    "Ready.",
+    "At your service.",
+    "I'm here.",
+    "Go ahead.",
+    "What can I do for you?",
+    "Yes sir.",
+    "Ready for your command.",
 ]
 
 def execute(command):
 
     # Firefox
     if "firefox" in command or "fire fox" in command:
-        os.system("firefox")
+        os.system("firefox &")
         speak("Opening Firefox")
 
     # Spotify
     elif "spotify" in command:
-        os.system("spotify")
+        os.system("spotify &")
         speak("Opening Spotify")
 
     # YouTube
     elif "youtube" in command or "you tube" in command:
-        os.system("firefox https://youtube.com")
+        os.system("firefox https://youtube.com &")
         speak("Opening YouTube")
 
     # Google
     elif "google" in command:
-        os.system("firefox https://google.com")
+        os.system("firefox https://google.com &")
         speak("Opening Google")
 
     # Time
