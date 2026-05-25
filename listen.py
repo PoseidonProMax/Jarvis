@@ -1,4 +1,5 @@
 import speech_recognition as sr
+from speak import speak
 
 r = sr.Recognizer()
 
@@ -7,6 +8,8 @@ def listen():
     with sr.Microphone() as source:
 
         print("\nListening...")
+        speak("Listening")
+
         audio = r.listen(source)
 
     try:
@@ -20,5 +23,6 @@ def listen():
     except:
 
         print("Could not understand")
+        speak("I could not understand")
 
         return ""
