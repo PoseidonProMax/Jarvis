@@ -12,6 +12,7 @@ while running:
     wake_command = listen("Waiting...")
 
     if "jarvis" in wake_command:
+        print("Activated")
 
         response = random.choice(responses)
         speak(response)
