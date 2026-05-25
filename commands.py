@@ -1,6 +1,14 @@
 import os
 import datetime
 from speak import speak
+import random
+responses = [
+    "Yes?",
+    "I'm listening.",
+    "What do you need?",
+    "Tell me.",
+    "Ready."
+]
 
 def execute(command):
 
