@@ -7,28 +7,27 @@ with sr.Microphone() as source:
     print("Calibrating microphone...")
     r.adjust_for_ambient_noise(source, duration=1)
 
-def listen(text="Waiting..."):
+def listen(text=""):
 
     with sr.Microphone() as source:
-
-        print(text)
 
         audio = r.listen(
             source,
             timeout=5,
-            phrase_time_limit=3
-)
+            phrase_time_limit=4
+        )
 
     try:
 
         command = r.recognize_google(audio).lower()
+
+        if text:
+            print(text)
 
         print("You said:", command)
 
         return command
 
     except:
-
-        print("Could not understand")
 
         return ""
