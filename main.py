@@ -1,7 +1,6 @@
 import random
 from listen import listen
 from commands import execute, responses
-from speak import speak
 
 print("Jarvis Assistant Started...")
 
@@ -13,12 +12,10 @@ while running:
 
     if "jarvis" in wake_command:
 
+        response = random.choice(responses)
         print("Activated")
 
-        response = random.choice(responses)
-        speak(response)
-
-        command = listen("Command...")
+        command = listen()
 
         if command:
             running = execute(command)
