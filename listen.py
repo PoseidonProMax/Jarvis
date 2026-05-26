@@ -1,3 +1,4 @@
+# Phase 3 Stable Build
 import os
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 os.environ['ALSA_CARD'] = '0'

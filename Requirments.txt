@@ -1,3 +1,4 @@
+# Phase 3 Stable Build
 SpeechRecognition
+PyAudio
 pyttsx3
-pyaudio

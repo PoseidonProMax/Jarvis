@@ -1,3 +1,4 @@
+# Phase 3 Stable Build
 # 🤖 Jarvis Voice Assistant
 
 A Python-based voice assistant inspired by Jarvis from Iron Man.
@@ -18,7 +19,10 @@ A Python-based voice assistant inspired by Jarvis from Iron Man.
 - datetime
 - os
 - random
-
+## 🚀 Phase 3
+- Smart command routing
+- Conversation mode
+- Stable Jarvis architecture
 ## 🚀 Run the Assistant
 
 ```bash
