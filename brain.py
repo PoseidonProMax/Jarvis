@@ -33,7 +33,6 @@ def think(command):
     elif "hello" in command:
         speak("Hello Abhinav.")
 
-    # Unknown command
     else:
         speak("I don't know that command yet.")
 

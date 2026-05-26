@@ -8,11 +8,15 @@ r = sr.Recognizer()
 
 def listen():
 
-    with sr.Microphone() as source:
-
-        audio = r.listen(source)
-
     try:
+
+        with sr.Microphone() as source:
+
+            audio = r.listen(
+                source,
+                timeout=5,
+                phrase_time_limit=6
+            )
 
         command = r.recognize_google(audio).lower()
 
@@ -21,5 +25,4 @@ def listen():
         return command
 
     except:
-
         return ""
