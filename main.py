@@ -1,8 +1,11 @@
 import random
 from listen import listen
-from commands import execute, responses
+from commands import responses
+from brain import think
+from speak import speak
 
-print("Jarvis Assistant Started...")
+print("Jarvis online...\n")
+print("Waiting wake word...")
 
 running = True
 
@@ -12,10 +15,20 @@ while running:
 
     if "jarvis" in wake_command:
 
+        print("\nActivated")
+
         response = random.choice(responses)
-        print("Activated")
+        speak(response)
+
+        print("Awaiting command...")
 
         command = listen()
 
         if command:
-            running = execute(command)
+
+            print("Command:", command)
+
+            running = think(command)
+
+            if running:
+                print("\nWaiting wake word...")

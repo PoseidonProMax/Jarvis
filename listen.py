@@ -10,11 +10,12 @@ with sr.Microphone() as source:
 def listen():
 
     with sr.Microphone() as source:
+        r.pause_threshold = 1
 
         audio = r.listen(
             source,
             timeout=5,
-            phrase_time_limit=4
+            phrase_time_limit=6
         )
 
     try:
