@@ -1,16 +1,17 @@
 import pyttsx3
-import threading
 
 engine = pyttsx3.init()
 
-engine.setProperty('rate', 170)
+engine.setProperty('rate', 175)
+engine.setProperty('volume', 1)
 
-def speak_text(text):
-
-    engine.say(text)
-    engine.runAndWait()
+voices = engine.getProperty('voices')
+engine.setProperty('voice', voices[0].id)
 
 def speak(text):
 
-    thread = threading.Thread(target=speak_text, args=(text,))
-    thread.start()
+    engine.stop()
+
+    engine.say(text)
+
+    engine.runAndWait()

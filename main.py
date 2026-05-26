@@ -18,6 +18,7 @@ while running:
         print("\nActivated")
 
         response = random.choice(responses)
+
         speak(response)
 
         print("Awaiting command...")
@@ -31,4 +32,5 @@ while running:
             running = think(command)
 
             if running:
+
                 print("\nWaiting wake word...")

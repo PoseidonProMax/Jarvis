@@ -40,18 +40,16 @@ def execute(command):
     # Time
     elif "time" in command:
 
-        now = datetime.now()
+        current_time = datetime.now().strftime("%I:%M %p")
 
-        current_time = now.strftime("%I:%M %p")
-
-        speak(f"The time is {current_time}")
+        speak(current_time)
 
     # Date
     elif "date" in command:
 
         today = datetime.now().strftime("%d %B %Y")
 
-        speak(f"Today's date is {today}")
+        speak(today)
 
     # Exit
     elif "exit" in command:
@@ -60,7 +58,6 @@ def execute(command):
 
         return False
 
-    # Unknown
     else:
 
         speak("Command not recognized")
