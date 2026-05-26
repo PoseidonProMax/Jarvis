@@ -26,7 +26,7 @@ while running:
 
         if command:
 
-            print(f"Command: {command}")
+            print(f"\nCommand: {command}")
 
             running = think(command)
 

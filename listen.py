@@ -6,16 +6,21 @@ import speech_recognition as sr
 
 r = sr.Recognizer()
 
+mic = sr.Microphone()
+
+with mic as source:
+    r.adjust_for_ambient_noise(source, duration=1)
+
 def listen():
 
     try:
 
-        with sr.Microphone() as source:
+        with mic as source:
 
             audio = r.listen(
                 source,
                 timeout=5,
-                phrase_time_limit=6
+                phrase_time_limit=5
             )
 
         command = r.recognize_google(audio).lower()

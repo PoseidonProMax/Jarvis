@@ -1,10 +1,16 @@
 import pyttsx3
+import threading
 
 engine = pyttsx3.init()
 
-# Slower speaking speed
-engine.setProperty('rate', 160)
+engine.setProperty('rate', 170)
 
-def speak(text):
+def speak_text(text):
+
     engine.say(text)
     engine.runAndWait()
+
+def speak(text):
+
+    thread = threading.Thread(target=speak_text, args=(text,))
+    thread.start()
