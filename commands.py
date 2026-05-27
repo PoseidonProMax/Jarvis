@@ -109,6 +109,53 @@ def execute(command):
         today = datetime.now().strftime("%d %B %Y")
 
         speak(today)
+    # Pause Music
+    elif "pause music" in command:
+
+        os.system("playerctl pause")
+
+        speak("Music paused")
+
+    # Play Music
+    elif "play music" in command:
+
+        os.system("playerctl play")
+
+        speak("Playing music")
+
+    # Next Song
+    elif "next song" in command:
+
+        os.system("playerctl next")
+
+        speak("Next song")
+
+    # Previous Song
+    elif "previous song" in command:
+
+        os.system("playerctl previous")
+
+        speak("Previous song")
+    # WiFi Status
+    elif "wi-fi" in command:
+
+        wifi = os.popen("nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d':' -f2").read().strip()
+
+        if wifi:
+
+            speak(f"Connected to {wifi}")
+
+        else:
+
+            speak("WiFi is disconnected")
+    # Battery Status
+    elif "battery" in command:
+
+        battery = os.popen("upower -i $(upower -e | grep BAT) | grep percentage").read()
+
+        battery = battery.split(":")[1].strip()
+
+        speak(f"Battery is at {battery}")
 
     # Exit
     elif "exit" in command:

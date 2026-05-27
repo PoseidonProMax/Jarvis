@@ -14,6 +14,12 @@ def think(command):
         "open",
         "screenshot",
         "volume",
+        "battery",
+        "wi-fi",
+        "music",
+        "song",
+        "next",
+        "previous",
         "mute"
     ]
 
