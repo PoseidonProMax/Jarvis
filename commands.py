@@ -75,10 +75,17 @@ def execute(command):
 
         speak("Volume decreased")
 
-    # Mute
-    elif "mute" in command:
+        # Unmute
+    elif command == "unmute":
 
-        os.system("amixer -D pulse sset Master mute")
+        os.system("amixer -D pulse sset Master unmute > /dev/null 2>&1")
+
+        speak("Unmuted")
+
+    # Mute
+    elif command == "mute":
+
+        os.system("amixer -D pulse sset Master mute > /dev/null 2>&1")
 
         speak("Muted")
 
