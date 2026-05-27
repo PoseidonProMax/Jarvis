@@ -1,7 +1,7 @@
-# Phase 3 Stable Build
 import os
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
-os.environ['ALSA_CARD'] = '0'
+
+# Hide Linux audio warning spam
+os.environ["PYGAME_HIDE_SUPPORT_PROMPT"] = "hide"
 
 import speech_recognition as sr
 
@@ -24,11 +24,26 @@ def listen():
                 phrase_time_limit=5
             )
 
-        command = r.recognize_google(audio).lower()
+        command = r.recognize_google(audio)
+
+        command = command.lower()
 
         print(f"You said: {command}")
 
         return command
 
+    except sr.WaitTimeoutError:
+
+        return ""
+
+    except sr.UnknownValueError:
+
+        return ""
+
+    except sr.RequestError:
+
+        return ""
+
     except:
+
         return ""

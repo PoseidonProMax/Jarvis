@@ -1,9 +1,7 @@
-# Phase 3 Stable Build
 import random
 from listen import listen
 from commands import responses
 from brain import think
-from speak import speak
 
 print("Jarvis online...\n")
 print("Waiting wake word...")
@@ -20,6 +18,7 @@ while running:
 
         response = random.choice(responses)
 
+        from speak import speak
         speak(response)
 
         print("Awaiting command...")

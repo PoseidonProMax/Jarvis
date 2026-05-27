@@ -1,4 +1,3 @@
-# Phase 3 Stable Build
 import os
 from datetime import datetime
 from speak import speak
@@ -26,6 +25,31 @@ def execute(command):
         os.system("spotify &")
         speak("Opening Spotify")
 
+    # Dynamic App Launcher
+    elif "open" in command:
+
+        app = command.replace("open", "").strip()
+
+        app_commands = {
+            "discord": "discord",
+            "vscode": "code",
+            "vs code": "code",
+            "files": "nautilus",
+            "terminal": "gnome-terminal",
+            "spotify": "spotify",
+            "firefox": "firefox"
+        }
+
+        if app in app_commands:
+
+            os.system(f"{app_commands[app]} &")
+
+            speak(f"Opening {app}")
+
+        else:
+
+            speak("Application not found")
+
     # YouTube
     elif "youtube" in command or "you tube" in command:
 
@@ -37,6 +61,13 @@ def execute(command):
 
         os.system("firefox https://google.com &")
         speak("Opening Google")
+
+    # Screenshot
+    elif "screenshot" in command:
+
+        os.system("/home/abhi/Applications/Flameshot-13.3.0.x86_64.AppImage gui &")
+
+        speak("Taking screenshot")
 
     # Time
     elif "time" in command:

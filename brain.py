@@ -1,4 +1,3 @@
-# Phase 3 Stable Build
 from commands import execute
 from speak import speak
 
@@ -11,7 +10,9 @@ def think(command):
         "google",
         "time",
         "date",
-        "exit"
+        "exit",
+        "open",
+        "screenshot"
     ]
 
     for word in system_commands:
@@ -19,6 +20,7 @@ def think(command):
         if word in command:
             return execute(command)
 
+    # Conversation mode
     if "how are you" in command:
 
         speak("I am functioning perfectly.")
