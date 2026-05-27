@@ -61,6 +61,26 @@ def execute(command):
 
         os.system("firefox https://google.com &")
         speak("Opening Google")
+            # Volume Up
+    elif "volume up" in command:
+
+        os.system("amixer -D pulse sset Master 10%+")
+
+        speak("Volume increased")
+
+    # Volume Down
+    elif "volume down" in command:
+
+        os.system("amixer -D pulse sset Master 10%-")
+
+        speak("Volume decreased")
+
+    # Mute
+    elif "mute" in command:
+
+        os.system("amixer -D pulse sset Master mute")
+
+        speak("Muted")
 
     # Screenshot
     elif "screenshot" in command:

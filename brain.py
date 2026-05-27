@@ -12,7 +12,9 @@ def think(command):
         "date",
         "exit",
         "open",
-        "screenshot"
+        "screenshot",
+        "volume",
+        "mute"
     ]
 
     for word in system_commands:
