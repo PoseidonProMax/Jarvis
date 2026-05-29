@@ -24,6 +24,9 @@ def think(command):
         "notes",
         "notify",
         "remind",
+        "reminder",
+        "reminders",
+        "cancel",
         "mute"
     ]
 

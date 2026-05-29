@@ -1,9 +1,14 @@
 import random
+
 from listen import listen
 from commands import responses
 from brain import think
+from reminders import restore_reminders
 
 print("Jarvis online...\n")
+
+restore_reminders()
+
 print("Waiting wake word...")
 
 running = True
@@ -16,9 +21,10 @@ while running:
 
         print("\nActivated")
 
+        from speak import speak
+
         response = random.choice(responses)
 
-        from speak import speak
         speak(response)
 
         print("Awaiting command...")

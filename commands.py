@@ -2,7 +2,12 @@ import os
 from datetime import datetime
 from speak import speak
 from pathlib import Path
-from reminders import set_reminder
+from reminders import (
+    set_reminder,
+    show_reminders,
+    cancel_reminder,
+    cancel_all_reminders
+)
 
 responses = [
     "At your service.",
@@ -179,7 +184,7 @@ def execute(command):
 
         speak("Notes cleared")
      # Reminder
-     
+
     elif command.startswith("remind me to"):
 
         try:
@@ -230,6 +235,38 @@ def execute(command):
         except:
 
             speak("Could not create reminder")
+    # Show Reminders
+    elif command == "show reminders":
+
+        show_reminders()
+
+        speak("Displaying reminders")
+
+
+    # Cancel Reminder
+    elif command.startswith("cancel reminder"):
+
+        try:
+
+            reminder_id = int(
+                command.split()[-1]
+            )
+
+            cancel_reminder(reminder_id)
+
+            speak("Reminder cancelled")
+
+        except:
+
+            speak("Invalid reminder number")
+
+
+    # Cancel All Reminders
+    elif command == "cancel all reminders":
+
+        cancel_all_reminders()
+
+        speak("All reminders cancelled")
      # Desktop Notification
     elif command.startswith("notify"):
 
