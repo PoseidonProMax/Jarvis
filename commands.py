@@ -1,6 +1,8 @@
 import os
 from datetime import datetime
 from speak import speak
+from pathlib import Path
+from reminders import set_reminder
 
 responses = [
     "At your service.",
@@ -136,6 +138,112 @@ def execute(command):
         os.system("playerctl previous")
 
         speak("Previous song")
+     # Take Note
+    elif command.startswith("take note"):
+
+        note = command.replace("take note", "").strip()
+
+        with open("notes.txt", "a") as f:
+            f.write(note + "\n")
+
+        speak("Note saved")
+
+    # Show Notes
+    elif command == "show notes":
+
+        try:
+
+            with open("notes.txt", "r") as f:
+
+                notes = f.read()
+
+            if notes.strip():
+
+                speak("Here are your notes")
+
+                print("\nNotes:\n")
+                print(notes)
+
+            else:
+
+                speak("No notes found")
+
+        except FileNotFoundError:
+
+            speak("No notes found")
+
+    # Clear Notes
+    elif command == "clear notes":
+
+        open("notes.txt", "w").close()
+
+        speak("Notes cleared")
+     # Reminder
+     
+    elif command.startswith("remind me to"):
+
+        try:
+
+            reminder_text = command.replace(
+                "remind me to",
+                ""
+            ).strip()
+
+            if " in " not in reminder_text:
+
+                speak("Please specify a time")
+
+                return True
+
+            task, duration = reminder_text.rsplit(" in ", 1)
+
+            seconds = 0
+
+            if "minute" in duration:
+
+                number = int(duration.split()[0])
+
+                seconds = number * 60
+
+            elif "hour" in duration:
+
+                number = int(duration.split()[0])
+
+                seconds = number * 3600
+
+            elif "day" in duration:
+
+                number = int(duration.split()[0])
+
+                seconds = number * 86400
+
+            else:
+
+                speak("Unsupported time format")
+
+                return True
+
+            set_reminder(task, seconds)
+
+            speak("Reminder saved")
+
+        except:
+
+            speak("Could not create reminder")
+     # Desktop Notification
+    elif command.startswith("notify"):
+
+        message = command.replace("notify", "").strip()
+
+        if message:
+
+            os.system(f'notify-send "Jarvis" "{message}"')
+
+            speak("Notification sent")
+
+        else:
+
+            speak("Please provide a notification message")
     # WiFi Status
     elif "wi-fi" in command:
 

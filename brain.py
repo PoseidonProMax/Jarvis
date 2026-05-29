@@ -20,6 +20,10 @@ def think(command):
         "song",
         "next",
         "previous",
+        "note",
+        "notes",
+        "notify",
+        "remind",
         "mute"
     ]
 

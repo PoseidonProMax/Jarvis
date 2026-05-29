@@ -21,7 +21,7 @@ def listen():
             audio = r.listen(
                 source,
                 timeout=5,
-                phrase_time_limit=5
+                phrase_time_limit=10
             )
 
         command = r.recognize_google(audio)
